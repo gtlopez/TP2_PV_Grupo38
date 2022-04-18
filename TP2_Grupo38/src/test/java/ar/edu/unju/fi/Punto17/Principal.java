@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class Principal {
@@ -52,7 +53,7 @@ public class Principal {
 				pf4.formatearFecha(fNac) + " hasta la fecha " + pf4.formatearFecha(fHoy));
 		System.out.println();
 		
-		//b.6
+	//b.6
 		System.out.println("Punto b.6");
 		ProcesoFecha pf5 = new ProcesoFecha();
 		Scanner teclado = new Scanner(System.in);
@@ -71,7 +72,8 @@ public class Principal {
 		System.out.println("Fecha ingresada por consola: " + pf5.formatearFecha(pf5.getFecha1()));
 		System.out.println("Fecha Incrementada: " + pf5.formatearFecha(fechaIncrementada));
 			
-		//b.6.2
+	//b.6.2
+		System.out.println("Punto b.6");
 		LocalDate fechaB62;
 		LocalDate fechaDecrementada;
 		System.out.println();
@@ -85,8 +87,31 @@ public class Principal {
 		System.out.println("Fecha ingresada por consola: " + pf5.formatearFecha(pf5.getFecha1()));
 		System.out.println("Fecha Disminuida en 6 meses: " + pf5.formatearFecha(fechaDecrementada));
 
-	
-		
-	}
+	//b.7
+		System.out.println("Punto b.7");
+		System.out.println();
+		while(fechaAux != null) {
 
+				try {
+					System.out.println("Ingreso de fechas con el formato 'dd/MM/yyyy'");
+					System.out.print("Ingrese una fecha: "); 
+					fechaAux = teclado.next();
+					fechaB62 = LocalDate.parse(fechaAux,dtf);
+					pf5.setFecha2(fechaB62);
+					fechaDecrementada = pf5.fecha2.minusMonths(6);
+					System.out.println();
+					System.out.println("Fecha ingresada por consola: " + pf5.formatearFecha(pf5.getFecha1()));
+					System.out.println("Fecha Disminuida en 6 meses: " + pf5.formatearFecha(fechaDecrementada));
+				}catch(DateTimeParseException ex) {
+					System.out.println("Fecha ingresada incorrectamente");	
+					fechaAux = null;
+				}
+		}
+		
+		
+		
+		
+		
+		
+		}	
 }
