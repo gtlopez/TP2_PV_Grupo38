@@ -3,6 +3,8 @@ package ar.edu.unju.fi.Punto17;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class Principal {
 
@@ -24,7 +26,7 @@ public class Principal {
 	//b.3
 		System.out.println("Punto b.3");
 		System.out.println("Comparar Fechas");
-		//pf2.compararFechas();
+		pf2.compararFechas();
 		
 	//b.4
 		System.out.println("Punto b.4");
@@ -48,7 +50,32 @@ public class Principal {
 				" años, " + pf4.contarTiempoTranscurrido().getMonths() + " meses y " + 
 				pf4.contarTiempoTranscurrido().getDays() + " dias desde la fecha " + 
 				pf4.formatearFecha(fNac) + " hasta la fecha " + pf4.formatearFecha(fHoy));
+		System.out.println();
+		
+		//b.6
+		System.out.println("Punto b.6");
+		ProcesoFecha pf5 = new ProcesoFecha();
+		Scanner teclado = new Scanner(System.in);
+		String fechaAux;
+		LocalDate fechaB6;
+		LocalDate fechaIncrementada;
 
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");	
+		System.out.println("Ingreso de fechas con el formato 'dd/MM/yyyy'");
+		System.out.println();
+		System.out.print("Ingrese una fecha: "); 
+		fechaAux = teclado.next();
+		fechaB6 = LocalDate.parse(fechaAux,dtf);		
+		pf5.setFecha1(fechaB6);
+		fechaIncrementada = fechaB6.plusDays(365);
+		System.out.println();
+		System.out.println("Fecha ingresada por consola: " + pf5.formatearFecha(pf5.getFecha1()));
+		System.out.println("Fecha Incrementada: " + pf5.formatearFecha(fechaIncrementada));
+			
+		
+		
+	
+		
 	}
 
 }
