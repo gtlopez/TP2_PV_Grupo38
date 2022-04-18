@@ -26,7 +26,7 @@ public class Principal {
 	//b.3
 		System.out.println("Punto b.3");
 		System.out.println("Comparar Fechas");
-		pf2.compararFechas();
+		//pf2.compararFechas();
 		
 	//b.4
 		System.out.println("Punto b.4");
@@ -62,7 +62,6 @@ public class Principal {
 
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");	
 		System.out.println("Ingreso de fechas con el formato 'dd/MM/yyyy'");
-		System.out.println();
 		System.out.print("Ingrese una fecha: "); 
 		fechaAux = teclado.next();
 		fechaB6 = LocalDate.parse(fechaAux,dtf);		
@@ -72,8 +71,20 @@ public class Principal {
 		System.out.println("Fecha ingresada por consola: " + pf5.formatearFecha(pf5.getFecha1()));
 		System.out.println("Fecha Incrementada: " + pf5.formatearFecha(fechaIncrementada));
 			
-		
-		
+		//b.6.2
+		LocalDate fechaB62;
+		LocalDate fechaDecrementada;
+		System.out.println();
+		System.out.println("Ingreso de fechas con el formato 'dd/MM/yyyy'");
+		System.out.print("Ingrese una fecha: "); 
+		fechaAux = teclado.next();
+		fechaB62 = LocalDate.parse(fechaAux,dtf);
+		pf5.setFecha2(fechaB62);
+		fechaDecrementada = pf5.fecha2.minusMonths(6);
+		System.out.println();
+		System.out.println("Fecha ingresada por consola: " + pf5.formatearFecha(pf5.getFecha1()));
+		System.out.println("Fecha Disminuida en 6 meses: " + pf5.formatearFecha(fechaDecrementada));
+
 	
 		
 	}
