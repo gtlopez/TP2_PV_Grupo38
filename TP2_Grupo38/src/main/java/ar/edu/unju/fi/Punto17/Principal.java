@@ -27,7 +27,7 @@ public class Principal {
 	//b.3
 		System.out.println("Punto b.3");
 		System.out.println("Comparar Fechas");
-		//pf2.compararFechas();
+		System.out.println(pf1.compararFechas());
 		
 	//b.4
 		System.out.println("Punto b.4");
